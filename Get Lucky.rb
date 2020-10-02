@@ -1,3 +1,5 @@
+#Get Lucky by Daft Punk chords con ritmo de Reggaeton Version 01 experimentando
+
 use_bpm 116
 
 live_loop :beat_lead do
