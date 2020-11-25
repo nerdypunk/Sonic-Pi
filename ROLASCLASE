@@ -1,0 +1,200 @@
+
+beats = "C:/Users/ttercero/Documents/Sonic Pi/Samples/house-loop-196_128bpm.wav"
+beats_2 = "C:/Users/ttercero/Documents/Sonic Pi/Samples/future-house-drums-loop_128bpm.wav"
+
+use_bpm 128
+
+live_loop :beat_lead do
+  #sample beats, rate: 0.5
+  sleep 8
+end
+
+
+live_loop :synths_1, sync: :beat_lead do
+  with_fx :vowel, mix: 0.5, amp: 0.7 do #0.5
+    with_fx :reverb, room: 0.5, mix: 0.3 do
+      use_synth :dsaw
+      play chord(:b3, :minor7), sustain: 4, release: 1
+      sleep 4
+      play chord(:d4, :major), sustain: 4, release: 1
+      sleep 4
+      play chord(:fs4, :minor7), sustain: 4, release: 1
+      sleep 4
+      play chord(:e, :major), sustain: 4, release: 1
+      sleep 4
+    end
+  end
+end
+
+CAMBIO DE ROLA
+
+live_loop :beat_lead2 do
+  #sample beats_3, rate: 0.5
+  sleep 16
+end
+
+live_loop :synth_chords, sync: :beat_lead2 do
+  with_fx :reverb, mix: 0.9, amp: 0.0 do #amp 0.7
+    use_synth :growl
+    play chord(:Eb3, :major7), attack: 0.7, release: 8, pitch: 15
+    play chord(:Eb2, :major7), attack: 0.9, release: 8, pitch: 15
+    sleep 8
+    play chord(:G3, :minor7), attack: 0.7, release: 8, pitch: 15
+    play chord(:G2, :minor7), attack: 0.9, release: 8, pitch: 15
+    sleep 8
+    play chord(:C3, :minor7), attack: 0.7, release: 16, pitch: 15
+    play chord(:C2, :minor7), attack: 0.9, release: 16, pitch: 15
+    sleep 16
+  end
+end
+
+live_loop :synth_lead_5, sync: :beat_lead2 do
+  with_fx :reverb, mix: 0.6, amp: 0.4 do
+    use_synth :square
+    use_random_seed 200
+    16.times do
+      #play chord(:g3, :minor7, num_octaves: 2).mirror.choose, release: 0.5, pitch: 15
+      sleep 0.5
+    end
+  end
+end
+
+live_loop :synth_lead_6, sync: :beat_lead2 do
+  with_fx :reverb, mix: 0.7, amp: 0.3 do
+    use_synth :pulse
+    #play chord(:g2, :minor7, num_octaves: 2).mirror.tick, release: 4, pitch: 15, attack: 0.8
+    sleep 8 #first 4 then 2 then 0.25
+  end
+end
+
+live_loop :synth_lead_7, sync: :beat_lead2 do
+  with_fx :reverb, mix: 0.6, amp: 0.1 do
+    use_synth :square
+    use_random_seed 63
+    16.times do
+      #play chord(:g3, :minor7, num_octaves: 2).mirror.choose, release: 0.5, pitch: 15
+      sleep 0.25
+    end
+  end
+end
+
+CAMBIO DE ROLA
+
+use_bpm 90
+
+live_loop :beat_lead_urbano do
+  with_fx :flanger, mix: 0.2 do
+    with_fx :reverb, mix: 0.1, amp: 1 do #amp 0.9
+      sample :bd_fat, amp: 2
+      sleep 0.75
+      sample :bd_fat, amp: 2
+      sample :elec_hi_snare, amp: 2
+      sleep 0.25
+      sample :bd_klub, amp: 1
+      sleep 0.5
+      sample :bd_klub, amp: 1
+      sample :elec_hi_snare, amp: 2
+      sleep 0.5
+    end
+  end
+end
+
+
+live_loop :synths_1, sync: :beat_lead_urbano do
+  with_fx :vowel, mix: 0.5, amp: 1 do #1
+    with_fx :reverb, room: 0.5, mix: 0.7 do
+      use_synth :dsaw
+      play chord(:ab3, :major), sustain: 2, release: 1
+      sleep 2
+      play chord(:f3, :minor), sustain: 2, release: 1
+      sleep 2
+      play chord(:g3, :major), sustain: 2, release: 1
+      sleep 2
+      play chord(:c3, :minor), sustain: 2, release: 1
+      sleep 2
+    end
+  end
+end
+
+CAMBIO DE ROLA
+
+use_bpm 80
+
+live_loop :beat_lead do
+  with_fx :reverb, mix: 0.5, amp: 1  do #amp 2
+    sample :bd_fat, amp: 2
+    sleep 0.5
+    sample :bd_fat
+    sleep 0.5
+    sample :bd_klub, amp: 1
+    sample :elec_hi_snare, amp: 2
+    sleep 0.5
+    sample :bd_fat, amp: 2
+    sleep 0.5
+  end
+end
+
+live_loop :synths_1, sync: :beat_lead do
+  with_fx :vowel, mix: 0.5, amp: 1 do #1
+    with_fx :reverb, room: 0.5, mix: 0.3 do
+      use_synth :beep
+      play chord(:ab3, :major), sustain: 2, release: 1
+      sleep 2
+      play chord(:f3, :minor), sustain: 2, release: 1
+      sleep 2
+      play chord(:g3, :major), sustain: 2, release: 1
+      sleep 2
+      play chord(:c3, :minor), sustain: 2, release: 1
+      sleep 2
+    end
+  end
+end
+
+live_loop :synths_3, sync: :beat_lead do
+  with_fx :reverb, room: 0.5, mix: 0.7 do
+    use_synth :tech_saws
+    play chord(:ab4, :major), sustain: 2, release: 1
+    sleep 2
+    play chord(:f4, :minor), sustain: 2, release: 1
+    sleep 2
+    play chord(:g4, :major), sustain: 2, release: 1
+    sleep 2
+    play chord(:c4, :minor), sustain: 2, release: 1
+    sleep 2
+  end
+end
+
+live_loop :synth_lead, sync: :beat_lead do
+  with_fx :reverb, mix: 0.7, amp: 1 do
+    use_synth :square
+    play chord(:ab2, :major, num_octaves: 2).mirror.choose, release: 0.25
+    sleep 0.25 #first 4 then 2 then 0.25
+  end
+end
+
+live_loop :synth_lead_2, sync: :beat_lead do
+  with_fx :echo, mix: 0.7, amp: 1.2 do #amp: 0.6
+    with_fx :reverb, mix: 0.7 do
+      use_synth :tech_saws
+      use_random_seed 705 #20,40
+      16.times do
+        #play chord(:ab5, :major, num_octaves: 2).mirror.choose, release: 0.25, pitch: 0
+        sleep 0.25
+      end
+    end
+  end
+end
+
+live_loop :synth_lead_3, sync: :beat_lead do
+  with_fx :echo, mix: 0.7, amp: 0.9 do #amp: 0.6
+    with_fx :reverb, mix: 0.7 do
+      use_synth :tb303
+      use_random_seed 909 #20,40
+      16.times do
+        #play chord(:ab3, :major, num_octaves: 2).mirror.choose, release: 0.25, pitch: 0
+        sleep 0.25
+      end
+    end
+  end
+end
+
